@@ -88,18 +88,17 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ onNavigate }) => {
                 </div>
             </aside>
 
-            {/* Main Content */}
             <main className="flex-grow flex flex-col h-screen overflow-hidden">
-                <header className="h-16 border-b border-white/5 flex items-center justify-between px-8 bg-background-dark/95 backdrop-blur-sm z-10">
-                    <h2 className="text-xl font-bold uppercase tracking-wide">
+                <header className="h-16 border-b border-white/5 flex items-center justify-between px-4 md:px-8 bg-background-dark/95 backdrop-blur-sm z-10">
+                    <h2 className="text-base md:text-xl font-bold uppercase tracking-wide truncate pr-4">
                         {navItems.find(i => i.id === activeTab)?.label}
                     </h2>
-                    <div className="flex items-center gap-3">
-                        <span className="text-sm font-medium">Camilla Gazeta</span>
+                    <div className="flex items-center gap-3 shrink-0">
+                        <span className="text-xs md:text-sm font-medium">Camilla Gazeta</span>
                     </div>
                 </header>
 
-                <div className="flex-grow overflow-auto p-8">
+                <div className="flex-grow overflow-auto p-4 md:p-8">
                     {renderTabContent()}
                 </div>
             </main>

@@ -48,20 +48,20 @@ const DashboardHours: React.FC = () => {
 
     return (
         <div className="flex flex-col gap-6">
-            <div className="flex justify-between items-center bg-card-dark p-6 rounded-2xl border border-white/5">
-                <div>
-                    <h3 className="text-white font-bold uppercase tracking-wide">Gerenciar Horários</h3>
-                    <p className="text-slate-500 text-xs mt-1">Configure dias de atendimento e horários específicos</p>
+            <div className="flex flex-col sm:flex-row justify-between items-center gap-4 bg-card-dark p-4 sm:p-6 rounded-2xl border border-white/5">
+                <div className="text-center sm:text-left">
+                    <h3 className="text-white font-bold uppercase tracking-tight text-sm sm:text-base">Gerenciar Horários</h3>
+                    <p className="text-slate-500 text-[10px] sm:text-xs mt-0.5">Configure dias de atendimento e horários</p>
                 </div>
-                <div className="flex items-center gap-4 bg-background-dark p-2 rounded-xl border border-white/5">
-                    <button onClick={goToPrevMonth} className="p-2 hover:bg-white/5 rounded-lg text-slate-400">
-                        <span className="material-symbols-outlined">chevron_left</span>
+                <div className="flex items-center gap-1 sm:gap-4 bg-background-dark p-1.5 rounded-xl border border-white/5 w-full sm:w-auto justify-between sm:justify-start">
+                    <button onClick={goToPrevMonth} className="p-1.5 hover:bg-white/5 rounded-lg text-slate-400 shrink-0">
+                        <span className="material-symbols-outlined text-base">chevron_left</span>
                     </button>
-                    <span className="text-white font-bold uppercase text-sm min-w-[120px] text-center">
+                    <span className="text-white font-bold uppercase text-[10px] sm:text-sm min-w-[90px] sm:min-w-[120px] text-center">
                         {monthName} {year}
                     </span>
-                    <button onClick={goToNextMonth} className="p-2 hover:bg-white/5 rounded-lg text-slate-400">
-                        <span className="material-symbols-outlined">chevron_right</span>
+                    <button onClick={goToNextMonth} className="p-1.5 hover:bg-white/5 rounded-lg text-slate-400 shrink-0">
+                        <span className="material-symbols-outlined text-base">chevron_right</span>
                     </button>
                 </div>
             </div>
@@ -111,7 +111,7 @@ const DashboardHours: React.FC = () => {
                                             key={day}
                                             onClick={() => handleDayClick(day)}
                                             className={`
-                                                aspect-square rounded-xl flex flex-col items-center justify-center gap-1 border transition-all text-sm relative
+                                                aspect-square rounded-lg sm:rounded-xl flex flex-col items-center justify-center gap-1 border transition-all text-xs sm:text-sm relative
                                                 ${isSelected ? 'ring-2 ring-primary border-transparent' : 'border-white/5'}
                                                 ${isActiveWindow ? 'ring-1 ring-green-500/40 shadow-[0_0_15px_rgba(34,197,94,0.15)] border-green-500/30' : ''}
                                                 ${isSunday ? 'opacity-30' : ''}
@@ -133,14 +133,14 @@ const DashboardHours: React.FC = () => {
                                 });
                             })()}
                         </div>
-                        <div className="mt-6 flex flex-wrap gap-4 px-2 py-4 border-t border-white/5">
+                        <div className="mt-4 sm:mt-6 flex flex-wrap gap-3 sm:gap-4 px-2 py-3 sm:py-4 border-t border-white/5">
                             <div className="flex items-center gap-2">
-                                <div className="w-3 h-3 rounded-full bg-green-500/20 border border-green-500/30 shadow-[0_0_10px_rgba(34,197,94,0.2)]"></div>
-                                <span className="text-[10px] uppercase font-black text-slate-400 tracking-wider">7 Dias Ativos no Site</span>
+                                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500/20 border border-green-500/30 shadow-[0_0_10px_rgba(34,197,94,0.2)]"></div>
+                                <span className="text-[9px] sm:text-[10px] uppercase font-black text-slate-400 tracking-wider">7 Dias Ativos</span>
                             </div>
                             <div className="flex items-center gap-2">
-                                <div className="w-1.5 h-1.5 rounded-full bg-green-400"></div>
-                                <span className="text-[10px] uppercase font-black text-slate-400 tracking-wider">Horários Disponíveis</span>
+                                <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-green-400"></div>
+                                <span className="text-[9px] sm:text-[10px] uppercase font-black text-slate-400 tracking-wider">Disponíveis</span>
                             </div>
                         </div>
                     </div>
