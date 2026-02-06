@@ -115,7 +115,8 @@ export const StudioProvider: React.FC<{ children: React.ReactNode }> = ({ childr
                                 createdAt: b.created_at,
                                 status: b.status || 'confirmed',
                                 totalAmount: parseFloat(b.total_amount || b.value || 0),
-                                depositAmount: parseFloat(b.deposit_amount || 0)
+                                depositAmount: parseFloat(b.deposit_amount || 0),
+                                isMaintenance: b.is_maintenance || false
                             }));
                             setBookings(mapped);
                         }
@@ -246,7 +247,8 @@ export const StudioProvider: React.FC<{ children: React.ReactNode }> = ({ childr
                     total_amount: booking.totalAmount,
                     deposit_amount: booking.depositAmount,
                     value: booking.totalAmount,
-                    status: 'pending'
+                    status: 'pending',
+                    is_maintenance: booking.isMaintenance || false
                 })
                 .select()
                 .single();
@@ -265,7 +267,8 @@ export const StudioProvider: React.FC<{ children: React.ReactNode }> = ({ childr
                 createdAt: data.created_at,
                 status: data.status,
                 totalAmount: parseFloat(data.total_amount),
-                depositAmount: parseFloat(data.deposit_amount)
+                depositAmount: parseFloat(data.deposit_amount),
+                isMaintenance: data.is_maintenance
             };
 
             setBookings(prev => [newBooking, ...prev]);

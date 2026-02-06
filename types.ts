@@ -30,4 +30,5 @@ export interface Booking extends BookingState {
   status: 'confirmed' | 'completed' | 'cancelled';
   totalAmount: number;
   depositAmount: number;
+  isMaintenance?: boolean;
 }
